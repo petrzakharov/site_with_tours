@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'includes/header.html' with departures=departures active=current_departure.0 %}
+<main class="container mt-3">
+<h1 class="display-5 mt-4">Летим из {{ current_departure.1 }}</h1>
+<p class="mb-4">Найдено {{ count_tours }} туров, от {{ min_price }} до {{ max_price }} и от {{ min_nights }} ночей до {{ max_nights }} ночей</p>
+<div class="row mt-5">
+{% for tour_number, tour in tours.items %}
+{% include 'includes/card.html' with tour=tour tour_number=tour_number %}
+{% endfor %}
+</div>
+</main>
+{% endblock %}

@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-{% include 'includes/header.html' with departures=departures active=msk index=True %} <!-- Поменять переменные в шаблоне хедер -->
+{% include 'includes/header.html' with departures=departures active=msk %} <!-- Поменять переменные в шаблоне хедер -->
 <main class="container mt-3">
 <section class="jumbotron text-center mt-4" style="background: url('{{ main_image }}'); bg-body text-white; background-position: center center" >
     <h1 class="display-4">Всякие туры</h1>
     <p class="lead">{{ subtitle }}</p>
     <p class="mt-5 w-50 mx-auto">{{ description }}</p>
 </section>
-
-<!-- Включить карточки в цикле, передать переменную, в шаблоне карточек подставить переменные -->
 <div class="row mt-5">
 {% for tour_number, tour in tours.items %}
 {% include 'includes/card.html' with tour=tour tour_number=tour_number %}

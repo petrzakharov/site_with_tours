@@ -7,27 +7,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          
-        {% comment %} <li class="nav-item active">
-            <a class="nav-link" href="#">Из Москвы</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Из Петербурга</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Из Новосибирска</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Из Екатеринбурга</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Из Казани</a>
-          </li> {% endcomment %}
-
-        {% for k, v in departures.items %}
-          <li class="nav-item {% if index and k == 'msk' %}active{% endif %}"> 
-              <!-- if index then key=msk else k=url  --> 
-            <a class="nav-link" href="/{{ k }}">{{ v }}</a>
+        {% for slug, name in departures.items %}
+          <li class="nav-item {% if slug == active %}active{% endif %}"> 
+            <a class="nav-link" href="{% url "departure_views" slug %}">{{ name }}</a>
           </li>
         {% endfor %}
         </ul>

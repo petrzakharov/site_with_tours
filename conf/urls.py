@@ -16,5 +16,4 @@ urlpatterns = [
         name='departure_views'
     ),
     path('tour/<int:id>', views.tour_view, name='tour'),
-
 ]
