@@ -4,6 +4,19 @@
     ],
 "workbench.colorCustomizations": {
     "editorRuler.foreground": "#4a584a"
-}
+},
+
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Path": "env/bin/flake8",
+    "files.insertFinalNewline": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active"
 
 }

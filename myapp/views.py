@@ -1,7 +1,9 @@
 import random
+
 from conf.settings import TOUR_NUMBER
 from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import render
+
 from . import data
 
 
@@ -14,7 +16,6 @@ def custom_handler500(request):
 
 
 def main_view(request):
-    template = 'myapp/index_upd.html'
     keys = random.sample(data.tours.keys(), TOUR_NUMBER)
     sample_tours = {key: data.tours[key] for key in keys}
     main_image = sample_tours[keys[0]].get(
@@ -28,6 +29,7 @@ def main_view(request):
         'tours': sample_tours,
         'main_image': main_image
     }
+    template = 'myapp/index.html'
     return render(request, template, context)
 
 
@@ -49,16 +51,18 @@ def departure_view(request, departure):
         'current_departure': current_departure,
         'tours': tours
     }
-    template = 'myapp/departure_upd.html'
+    template = 'myapp/departure.html'
     return render(request, template, context)
 
 
 def tour_view(request, id):
     departure = data.tours[id]['departure']
+    data.tours[id]['stars_emogi'] = '★' * int(data.tours[id]['stars'])
     context = {
         'departures': data.departures,
         'current_departure': [departure, data.departures[departure]],
         'tour_data': data.tours[id]
     }
-    template = 'myapp/tour_upd.html'
+    template = 'myapp/tour.html'
     return render(request, template, context)
+

@@ -3,7 +3,6 @@ from django.urls import path
 
 from myapp import views
 
-
 handler404 = views.custom_handler404
 handler500 = views.custom_handler500
 
