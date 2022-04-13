@@ -1,5 +1,5 @@
 asgiref==3.5.0
-astroid==2.4.2
+astroid
 attrs==21.4.0
 autopep8==1.6.0
 backports.zoneinfo==0.2.1
@@ -36,7 +36,7 @@ py==1.11.0
 pycodestyle==2.8.0
 pydocstyle==6.1.1
 pyflakes
-pylint==2.10.2
+pylint
 pylint-celery==0.3
 pylint-django==2.4.4
 pylint-flask==0.6
