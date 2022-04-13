@@ -65,4 +65,3 @@ def tour_view(request, id):
     }
     template = 'myapp/tour.html'
     return render(request, template, context)
-
